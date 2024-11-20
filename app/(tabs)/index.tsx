@@ -3,7 +3,7 @@ import { FlatList, StyleSheet, Text, View } from 'react-native';
 import Employee from '@/components/Employee';
 import { HeaderEmployee } from '@/components/HeaderEmployee';
 import SearchInput from '@/components/SearchInput';
-import { Platform } from 'react-native'; // Importando o módulo Platform
+import { Platform } from 'react-native';
 
 interface EmployeeProps {
   id: number;
@@ -53,6 +53,13 @@ export default function TabOneScreen() {
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => <Employee item={item} />}
         ListHeaderComponent={HeaderEmployee}
+        ListEmptyComponent={
+          <View style={styles.employeeContainer}>
+            <Text>
+              Nenhum funcionário disponível no momento.
+            </Text>
+          </View>
+        }
         contentContainerStyle={styles.list}
       />
     </View>
@@ -72,5 +79,12 @@ const styles = StyleSheet.create({
   },
   list: {
     borderRadius: 10,
+  },
+  employeeContainer: {
+    paddingStart: 15,
+    borderColor: '#A8A8A8',
+    borderWidth: 0.5,
+    borderTopWidth: 0,
+    padding: 10,
   },
 });
