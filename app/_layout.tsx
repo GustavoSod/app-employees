@@ -53,12 +53,13 @@ function RootLayoutNav() {
           name="(tabs)" 
           options={{
             headerShown: true,
+            headerShadowVisible: false,
             headerTitle: '',
             headerStyle:{
-              backgroundColor:"#fff"
+              backgroundColor:"#fff",
             },
             headerLeft: () => (
-              <View style={{ marginLeft: 10 }}>
+              <View style={{ marginLeft: 20 }}>
                 <Image 
                   source={{ uri: 'https://img.favpng.com/25/7/23/computer-icons-user-profile-avatar-image-png-favpng-LFqDyLRhe3PBXM0sx2LufsGFU.jpg' }} 
                   style={{
@@ -70,20 +71,20 @@ function RootLayoutNav() {
               </View>
             ),
             headerRight: () => (
-              <TouchableOpacity style={{ marginRight: 10 }}>
+              <TouchableOpacity style={{ marginRight: 20 }}>
                 <AntDesign name="bells" size={24} color={"#000"} />
                 <View style={{
                   position: 'absolute', 
-                  top: -4, 
+                  top: -6, 
                   right: -4, 
                   backgroundColor: 'red', 
                   borderRadius: 10, 
-                  width: 12, 
-                  height: 12, 
+                  width: 16, 
+                  height: 16, 
                   justifyContent: 'center', 
                   alignItems: 'center',
                 }}>
-                  <Text style={{ color: 'white', fontSize: 8 }}>1</Text>
+                  <Text style={{ color: 'white', fontSize: 10, fontWeight: '700' }}>1</Text>
                 </View>
               </TouchableOpacity>
             ),
