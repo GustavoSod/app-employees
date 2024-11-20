@@ -12,13 +12,26 @@ Before you begin, ensure you have the following tools installed:
 
 ## Get started
 
-1. Install dependencies
+1. Clone the repository
+
+```bash
+   git clone git@github.com:GustavoSod/app-employees.git
+```
+
+1. Navigate to the project directory
+
+```bash
+   cd app-employees
+```
+
+
+3. Install dependencies
 
 ```bash
    npm install
 ```
 
-Start the app
+4. Start the app
 
    ```bash
     npx expo start
