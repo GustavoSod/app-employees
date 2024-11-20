@@ -1,24 +1,23 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import AntDesign from '@expo/vector-icons/AntDesign';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 
 import { useColorScheme } from '@/components/useColorScheme';
 
 export {
-  // Catch any errors thrown by the Layout component.
   ErrorBoundary,
 } from 'expo-router';
 
 export const unstable_settings = {
-  // Ensure that reloading on `/modal` keeps a back button present.
   initialRouteName: '(tabs)',
 };
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
@@ -27,7 +26,6 @@ export default function RootLayout() {
     ...FontAwesome.font,
   });
 
-  // Expo Router uses Error Boundaries to catch errors in the navigation tree.
   useEffect(() => {
     if (error) throw error;
   }, [error]);
@@ -51,7 +49,46 @@ function RootLayoutNav() {
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen 
+          name="(tabs)" 
+          options={{
+            headerShown: true,
+            headerTitle: '',
+            headerStyle:{
+              backgroundColor:"#fff"
+            },
+            headerLeft: () => (
+              <View style={{ marginLeft: 10 }}>
+                <Image 
+                  source={{ uri: 'https://img.favpng.com/25/7/23/computer-icons-user-profile-avatar-image-png-favpng-LFqDyLRhe3PBXM0sx2LufsGFU.jpg' }} 
+                  style={{
+                    width: 40, 
+                    height: 40, 
+                    borderRadius: 20,
+                  }}
+                />
+              </View>
+            ),
+            headerRight: () => (
+              <TouchableOpacity style={{ marginRight: 10 }}>
+                <AntDesign name="bells" size={24} color={"#000"} />
+                <View style={{
+                  position: 'absolute', 
+                  top: -4, 
+                  right: -4, 
+                  backgroundColor: 'red', 
+                  borderRadius: 10, 
+                  width: 12, 
+                  height: 12, 
+                  justifyContent: 'center', 
+                  alignItems: 'center',
+                }}>
+                  <Text style={{ color: 'white', fontSize: 8 }}>1</Text>
+                </View>
+              </TouchableOpacity>
+            ),
+          }} 
+        />
         <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
       </Stack>
     </ThemeProvider>
