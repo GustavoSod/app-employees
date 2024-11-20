@@ -15,3 +15,9 @@ Start the app
    ```bash
     npx expo start
    ```
+
+## App Features
+
+- Employee Listing
+- View employee details
+- Search and filter employees by name
