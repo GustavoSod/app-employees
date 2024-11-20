@@ -3,6 +3,7 @@ import { FlatList, StyleSheet, Text, View } from 'react-native';
 import Employee from '@/components/Employee';
 import { HeaderEmployee } from '@/components/HeaderEmployee';
 import SearchInput from '@/components/SearchInput';
+import { Platform } from 'react-native'; // Importando o módulo Platform
 
 interface EmployeeProps {
   id: number;
@@ -20,7 +21,11 @@ export default function TabOneScreen() {
   useEffect(() => {
     const fetchEmployees = async () => {
       try {
-        const response = await fetch('http://localhost:3000/employees');
+        const url = Platform.OS === 'android' 
+          ? 'http://10.0.2.2:3000/employees' 
+          : 'http://localhost:3000/employees';
+        
+        const response = await fetch(url);
         const data = await response.json();
         setEmployees(data);
         setFilteredEmployees(data);
