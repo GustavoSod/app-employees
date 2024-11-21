@@ -85,14 +85,14 @@ function RootLayoutNav() {
                         position: 'absolute', 
                         top: -6, 
                         right: -4, 
-                        backgroundColor: 'red', 
+                        backgroundColor: '#0500FF', 
                         borderRadius: 10, 
-                        width: 16, 
-                        height: 16, 
+                        width: 18, 
+                        height: 18, 
                         justifyContent: 'center', 
                         alignItems: 'center',
                       }}>
-                        <Text style={{ color: 'white', fontSize: 10, fontWeight: '700' }}>1</Text>
+                        <Text style={{ color: 'white', fontSize: 10, fontWeight: '800' }}>02</Text>
                       </View>
                     </>
                   )}

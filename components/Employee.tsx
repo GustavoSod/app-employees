@@ -83,8 +83,7 @@ const styles = StyleSheet.create({
   },
   arrow: {
     fontSize: 18,
-    fontWeight: 'bold',
-    color: '#717171',
+    color:"#0500FF"
   },
   detailsContainer: {
     width: '100%',
