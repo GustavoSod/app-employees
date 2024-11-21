@@ -34,7 +34,13 @@ Before you begin, ensure you have the following tools installed:
 4. Start the app
 
    ```bash
-    npx expo start
+   npx expo start
+   ```
+   
+5. Run tests
+
+   ```bash
+   npm test
    ```
 
 ## App Features
