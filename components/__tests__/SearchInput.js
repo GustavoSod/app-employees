@@ -2,6 +2,8 @@ import React from 'react';
 import { render, fireEvent } from '@testing-library/react-native';
 import SearchInput from '@/components/SearchInput';
 
+jest.mock('@expo/vector-icons/FontAwesome', () => 'FontAwesome');
+
 describe('SearchInput', () => {
   it('deve renderizar corretamente com o placeholder', () => {
     const onSearch = jest.fn();

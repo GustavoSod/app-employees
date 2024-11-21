@@ -24,13 +24,13 @@ describe('Employee', () => {
     expect(queryByText('Data de Admissão:')).toBeNull();
     expect(queryByText('Cargo:')).toBeNull();
 
-    fireEvent.press(getByText('v'));
+    fireEvent.press(getByText('>'));
 
     expect(getByText('Telefone:')).toBeTruthy();
     expect(getByText('Data de Admissão:')).toBeTruthy();
     expect(getByText('Cargo:')).toBeTruthy();
 
-    fireEvent.press(getByText('>'));
+    fireEvent.press(getByText('v'));
 
     expect(queryByText('Telefone:')).toBeNull();
     expect(queryByText('Data de Admissão:')).toBeNull();
