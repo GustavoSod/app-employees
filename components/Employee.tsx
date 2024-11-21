@@ -23,7 +23,7 @@ export default function Employee({ item }: { item: EmployeeProps }) {
         <Image source={{ uri: item.image }} style={styles.employeeImage} />
         <Text style={styles.employeeName}>{item.name}</Text>
         <TouchableOpacity onPress={toggleDetails} style={styles.arrowButton}>
-          <Text style={styles.arrow}>{isVisible ? '>' : 'v'}</Text>
+          <Text style={styles.arrow}>{isVisible ? 'v' : '>'}</Text>
         </TouchableOpacity>
       </View>
 
