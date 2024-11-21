@@ -2,11 +2,11 @@ import FontAwesome from '@expo/vector-icons/FontAwesome';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
+import { Stack, Link } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+import { View, Text, Image, Pressable } from 'react-native';
 
 import { useColorScheme } from '@/components/useColorScheme';
 
@@ -71,26 +71,37 @@ function RootLayoutNav() {
               </View>
             ),
             headerRight: () => (
-              <TouchableOpacity style={{ marginRight: 20 }}>
-                <AntDesign name="bells" size={24} color={"#000"} />
-                <View style={{
-                  position: 'absolute', 
-                  top: -6, 
-                  right: -4, 
-                  backgroundColor: 'red', 
-                  borderRadius: 10, 
-                  width: 16, 
-                  height: 16, 
-                  justifyContent: 'center', 
-                  alignItems: 'center',
-                }}>
-                  <Text style={{ color: 'white', fontSize: 10, fontWeight: '700' }}>1</Text>
-                </View>
-              </TouchableOpacity>
+              <Link href="/modal" asChild>
+                <Pressable style={{ marginRight: 20 }}>
+                  {({ pressed }) => (
+                    <>
+                      <AntDesign 
+                        name="bells" 
+                        size={24} 
+                        color="#000" 
+                        style={{ opacity: pressed ? 0.5 : 1 }}
+                      />
+                      <View style={{
+                        position: 'absolute', 
+                        top: -6, 
+                        right: -4, 
+                        backgroundColor: 'red', 
+                        borderRadius: 10, 
+                        width: 16, 
+                        height: 16, 
+                        justifyContent: 'center', 
+                        alignItems: 'center',
+                      }}>
+                        <Text style={{ color: 'white', fontSize: 10, fontWeight: '700' }}>1</Text>
+                      </View>
+                    </>
+                  )}
+                </Pressable>
+              </Link>
             ),
           }} 
         />
-        <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+        <Stack.Screen name="modal" options={{ presentation: 'modal', headerTitle:'Notificações'}} />
       </Stack>
     </ThemeProvider>
   );

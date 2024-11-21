@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react-native';
-import { Employee } from '@/components/Employee';
+import Employee from '@/components/Employee';
 
 describe('Employee', () => {
   const mockEmployee = {
